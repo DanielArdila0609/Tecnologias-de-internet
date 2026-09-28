@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materias — StudyFlow</title>
+  <meta name="description" content="Organiza tus materias y consulta tu avance en cada una.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/materias.css">
+</head>
+<body class="app" data-page="materias">
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <div class="app-shell">
+    <div data-shell="sidebar"></div>
+
+    <div class="app-main">
+      <div data-shell="topbar"></div>
+
+      <main class="app-content" id="contenido">
+        <div class="page-header page-header--actions">
+          <div>
+            <h1>Materias</h1>
+            <p>Organiza tus materias y consulta tu avance en cada una</p>
+          </div>
+          <button type="button" class="btn btn--primary btn--sm" id="newSubjectBtn">+ Nueva materia</button>
+        </div>
+
+        <div class="subject-grid" id="subjectGrid"></div>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="modal modal--small" id="subjectModal" aria-labelledby="subjectModalTitle">
+    <form class="modal__form" id="subjectForm" novalidate>
+      <header class="modal__header">
+        <h2 id="subjectModalTitle">Nueva materia</h2>
+        <button type="button" class="modal__close" data-close aria-label="Cerrar" id="subjectModalClose"></button>
+      </header>
+
+      <div class="field">
+        <label for="subjectName">Nombre *</label>
+        <input type="text" id="subjectName" name="name" placeholder="ej. Cálculo Diferencial" maxlength="60" required>
+      </div>
+
+      <fieldset class="field">
+        <legend>Ícono</legend>
+        <div class="emoji-grid" id="emojiGrid"></div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend>Color</legend>
+        <div class="color-grid" id="colorGrid"></div>
+      </fieldset>
+
+      <p class="form-error" role="alert" hidden></p>
+
+      <footer class="modal__footer">
+        <button type="button" class="btn btn--ghost btn--sm" data-close>Cancelar</button>
+        <button type="submit" class="btn btn--primary btn--sm" id="subjectSubmit">Crear materia</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <script src="../js/icons.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/materias.js"></script>
+</body>
+</html>

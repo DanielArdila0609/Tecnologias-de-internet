@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión — StudyFlow</title>
+  <meta name="description" content="Inicia sesión en StudyFlow para continuar organizando tus estudios.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body class="auth-page">
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="navbar container">
+      <a href="inicio.html" class="navbar__brand" aria-label="StudyFlow, ir a la página de inicio">
+        <span class="navbar__logo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 5.5C4 4.67 4.67 4 5.5 4H11V20H5.5C4.67 20 4 19.33 4 18.5V5.5Z" fill="white" fill-opacity="0.95"/>
+            <path d="M20 5.5C20 4.67 19.33 4 18.5 4H13V20H18.5C19.33 20 20 19.33 20 18.5V5.5Z" fill="white" fill-opacity="0.7"/>
+          </svg>
+        </span>
+        <span class="navbar__name">StudyFlow</span>
+      </a>
+      <div class="navbar__actions">
+        <a href="iniciar-sesion.html" class="btn btn--ghost" aria-current="page">Iniciar Sesión</a>
+        <a href="crear-cuenta.html" class="btn btn--primary">Comenzar Gratis</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth" id="contenido">
+    <div class="container auth__grid">
+      <div class="auth__visual" id="authVisual" aria-hidden="true"></div>
+
+      <section class="auth-card" aria-labelledby="authTitle">
+        <h1 id="authTitle">Bienvenido de nuevo</h1>
+        <p class="auth-card__subtitle">Continúa organizando tus estudios y alcanzando tus retos.</p>
+
+        <form class="auth-form" id="loginForm" novalidate>
+          <div class="field">
+            <label for="loginEmail">Correo electrónico</label>
+            <input type="email" id="loginEmail" name="email" placeholder="tucorreo@universidad.edu" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <div class="field__label-row"><label for="loginPassword">Contraseña</label><a href="recuperar-contrasena.html">¿Olvidaste tu contraseña?</a></div>
+            <div class="input-wrap">
+              <input type="password" id="loginPassword" name="password" placeholder="Tu contraseña" autocomplete="current-password" required>
+              <button type="button" class="input-wrap__toggle" data-toggle-password aria-label="Mostrar contraseña" aria-pressed="false"></button>
+            </div>
+          </div>
+          <p class="form-error" role="alert" hidden></p>
+          <button type="submit" class="btn btn--primary btn--block">Iniciar Sesión</button>
+        </form>
+
+        <div class="auth-divider"><span>o continuar con</span></div>
+        <div class="auth-social">
+          <button type="button" class="btn-social" data-provider="google">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.3h5.9a5.05 5.05 0 0 1-2.19 3.31v2.75h3.55c2.08-1.91 3.24-4.73 3.24-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.55-2.75c-.98.66-2.24 1.05-3.73 1.05-2.87 0-5.3-1.94-6.17-4.55H2.16v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.83 14.09a6.6 6.6 0 0 1 0-4.18V7.07H2.16a11 11 0 0 0 0 9.86l3.67-2.84z"/><path fill="#EA4335" d="M12 5.36c1.62 0 3.06.56 4.21 1.65l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.16 7.07l3.67 2.84C6.7 7.3 9.13 5.36 12 5.36z"/></svg>
+            Google
+          </button>
+          <button type="button" class="btn-social" data-provider="microsoft">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F25022" d="M2 2h9.5v9.5H2z"/><path fill="#7FBA00" d="M12.5 2H22v9.5h-9.5z"/><path fill="#00A4EF" d="M2 12.5h9.5V22H2z"/><path fill="#FFB900" d="M12.5 12.5H22V22h-9.5z"/></svg>
+            Microsoft
+          </button>
+        </div>
+        <p class="auth-card__footer">¿No tienes cuenta? <a href="crear-cuenta.html">Crear una cuenta</a></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="../js/icons.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

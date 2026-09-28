@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyFlow — Estudia más inteligente, no más duro</title>
+  <meta name="description" content="StudyFlow reúne Pomodoro, gestión de tareas y análisis de productividad en una sola plataforma diseñada para universitarios que quieren rendir al máximo.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/inicio.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#inicio">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="navbar container">
+      <a href="#inicio" class="navbar__brand" aria-label="StudyFlow, ir al inicio">
+        <span class="navbar__logo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 5.5C4 4.67 4.67 4 5.5 4H11V20H5.5C4.67 20 4 19.33 4 18.5V5.5Z" fill="white" fill-opacity="0.95"/>
+            <path d="M20 5.5C20 4.67 19.33 4 18.5 4H13V20H18.5C19.33 20 20 19.33 20 18.5V5.5Z" fill="white" fill-opacity="0.7"/>
+          </svg>
+        </span>
+        <span class="navbar__name">StudyFlow</span>
+      </a>
+
+      <nav class="navbar__nav" id="primary-navigation" aria-label="Navegación principal">
+        <ul class="navbar__links">
+          <li><a href="#funciones">Características</a></li>
+          <li><a href="#estadisticas">Estadísticas</a></li>
+          <!-- Páginas futuras (descomentar al crearlas en html/):
+          <li><a href="pomodoro.html">Pomodoro</a></li>
+          <li><a href="materias.html">Materias</a></li>
+          <li><a href="tareas.html">Tareas</a></li>
+          <li><a href="logros.html">Logros</a></li>
+          <li><a href="metas.html">Metas</a></li>
+          -->
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="iniciar-sesion.html" class="btn btn--ghost">Iniciar Sesión</a>
+        <a href="crear-cuenta.html" class="btn btn--primary">Comenzar Gratis</a>
+      </div>
+
+      <button type="button" class="navbar__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú de navegación">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <ul class="mobile-menu__links">
+        <li><a href="#funciones">Características</a></li>
+        <li><a href="#estadisticas">Estadísticas</a></li>
+      </ul>
+      <div class="mobile-menu__actions">
+        <a href="iniciar-sesion.html" class="btn btn--ghost btn--block">Iniciar Sesión</a>
+        <a href="crear-cuenta.html" class="btn btn--primary btn--block">Comenzar Gratis</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="inicio" class="hero">
+      <div class="container hero__grid">
+
+        <div class="hero__content">
+          <h1 class="hero__title">
+            Estudia más<br>
+            <span class="hero__title-accent">Inteligente,</span><br>
+            No más duro.
+          </h1>
+
+          <p class="hero__description">
+            StudyFlow reúne Pomodoro, gestión de tareas y análisis de productividad
+            en una sola plataforma diseñada para universitarios que quieren rendir al máximo.
+          </p>
+
+          <div class="hero__actions">
+            <a href="crear-cuenta.html" class="btn btn--primary btn--large">Comienza Gratis</a>
+            <a href="dashboard.html?demo=1" class="btn btn--outline btn--large">Ver Demo</a>
+          </div>
+
+          <div class="hero__social-proof">
+            <div class="hero__avatars" aria-hidden="true">
+              <span class="avatar-dot avatar-dot--1"></span>
+              <span class="avatar-dot avatar-dot--2"></span>
+              <span class="avatar-dot avatar-dot--3"></span>
+              <span class="avatar-dot avatar-dot--4"></span>
+            </div>
+            <div class="hero__rating">
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <span class="hero__rating-text">+1,000 estudiantes ya organizan su semana</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__mockup" role="img" aria-label="Vista previa del panel de StudyFlow con temporizador Pomodoro, lista de tareas y progreso semanal">
+          <div class="mockup-card">
+            <div class="mockup-card__header">
+              <span class="mockup-card__dot"></span>
+              <span class="mockup-card__brand">StudyFlow</span>
+              <span class="mockup-card__menu" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </span>
+            </div>
+
+            <div class="mockup-card__timer">
+              <span class="mockup-card__timer-label">Sesión de enfoque</span>
+              <span class="mockup-card__timer-value">25:00</span>
+              <div class="mockup-card__timer-controls" aria-hidden="true">
+                <span class="mockup-pill mockup-pill--active"></span>
+                <span class="mockup-pill"></span>
+              </div>
+            </div>
+
+            <ul class="mockup-card__tasks">
+              <li><span class="task-dot task-dot--done"></span>Repasar Cálculo II</li>
+              <li><span class="task-dot task-dot--pending"></span>Ensayo de Historia</li>
+              <li><span class="task-dot task-dot--pending"></span>Lab de Química</li>
+            </ul>
+
+            <div class="mockup-card__stats" aria-hidden="true">
+              <div class="mockup-bar"><span style="height:40%"></span></div>
+              <div class="mockup-bar"><span style="height:70%"></span></div>
+              <div class="mockup-bar"><span style="height:55%"></span></div>
+              <div class="mockup-bar"><span style="height:90%"></span></div>
+              <div class="mockup-bar"><span style="height:65%"></span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="funciones" class="features">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Todo lo que necesitas<br>para estudiar mejor</h2>
+          <p>Herramientas pensadas para universitarios que quieren rendir al máximo.</p>
+        </div>
+
+        <div class="features__grid">
+
+          <article class="feature-card feature-card--pomodoro">
+            <span class="feature-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M12 9v4l2.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M9 2h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Técnica Pomodoro</h3>
+            <p>Alterna bloques de enfoque y descanso para mantener la concentración sin agotarte.</p>
+          </article>
+
+          <article class="feature-card feature-card--materias">
+            <span class="feature-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.67 4.67 4 5.5 4H11V20H5.5C4.67 20 4 19.33 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M20 5.5C20 4.67 19.33 4 18.5 4H13V20H18.5C19.33 20 20 19.33 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.8"/></svg>
+            </span>
+            <h3>Gestión de Materias</h3>
+            <p>Organiza cada asignatura, sus recursos y horarios en un solo lugar ordenado.</p>
+          </article>
+
+          <article class="feature-card feature-card--tareas">
+            <span class="feature-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Gestión de Tareas</h3>
+            <p>Prioriza pendientes, define fechas límite y nunca pierdas de vista una entrega.</p>
+          </article>
+
+          <article class="feature-card feature-card--estadisticas" id="estadisticas">
+            <span class="feature-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 19V10M12 19V5M19 19v-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Estadísticas</h3>
+            <p>Visualiza tu tiempo de estudio y tu avance real semana a semana.</p>
+          </article>
+
+          <article class="feature-card feature-card--logros">
+            <span class="feature-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="5" stroke="currentColor" stroke-width="1.8"/><path d="M9 13.5L7.5 21l4.5-2.2 4.5 2.2-1.5-7.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Logros</h3>
+            <p>Desbloquea reconocimientos a medida que construyes hábitos de estudio.</p>
+          </article>
+
+          <article class="feature-card feature-card--metas">
+            <span class="feature-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="0.5" stroke="currentColor" stroke-width="1.8"/></svg>
+            </span>
+            <h3>Metas Semanales</h3>
+            <p>Define objetivos claros y sigue tu progreso hacia cada meta que te propongas.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial">
+      <div class="container">
+        <div class="testimonial__card">
+          <span class="stars stars--accent" aria-hidden="true">★★★★★</span>
+          <blockquote>
+            <p>“Antes de StudyFlow llegaba al examen con la mitad del temario.
+            Ahora organizo todo desde el día uno del semestre y mi promedio subió casi un punto entero en este semestre.”</p>
+          </blockquote>
+          <div class="testimonial__author">
+            <span class="testimonial__avatar" aria-hidden="true">AM</span>
+            <div>
+              <p class="testimonial__name">Andrea Martínez</p>
+              <p class="testimonial__role">Ingeniería de Sistemas — 6.º semestre</p>
+            </div>
+          </div>
+          <div class="testimonial__dots" aria-hidden="true">
+            <span class="dot dot--active"></span><span class="dot"></span><span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+
+      <div class="footer__brand">
+        <a href="#inicio" class="navbar__brand" aria-label="StudyFlow, ir al inicio">
+          <span class="navbar__logo" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 5.5C4 4.67 4.67 4 5.5 4H11V20H5.5C4.67 20 4 19.33 4 18.5V5.5Z" fill="white" fill-opacity="0.95"/>
+              <path d="M20 5.5C20 4.67 19.33 4 18.5 4H13V20H18.5C19.33 20 20 19.33 20 18.5V5.5Z" fill="white" fill-opacity="0.7"/>
+            </svg>
+          </span>
+          <span class="navbar__name">StudyFlow</span>
+        </a>
+        <p>La plataforma de productividad académica para estudiar de forma más inteligente, no más dura.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Enlaces del producto">
+        <h4>Producto</h4>
+        <ul>
+          <li><a href="#funciones">Características</a></li>
+          <li><a href="#estadisticas">Estadísticas</a></li>
+          <li><a href="#inicio">Comenzar Gratis</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-label="Enlaces legales">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Términos de uso</a></li>
+          <li><a href="#">Privacidad</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@studyflow.app">hola@studyflow.app</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2026 StudyFlow. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/icons.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

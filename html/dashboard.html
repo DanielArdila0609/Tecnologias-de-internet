@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio — StudyFlow</title>
+  <meta name="description" content="Tu panel de estudio en StudyFlow: sesión de estudio, progreso del día, materias, tareas y calendario.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/calendar.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="app" data-page="inicio">
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <div class="app-shell">
+    <div data-shell="sidebar"></div>
+
+    <div class="app-main">
+      <div data-shell="topbar"></div>
+
+      <main class="app-content" id="contenido">
+        <h1 class="welcome" id="welcome"></h1>
+
+        <section class="session-card" aria-labelledby="sesion-titulo">
+          <div class="session-card__ring" aria-hidden="true">
+            <div class="session-card__ring-inner" id="ringInner"></div>
+          </div>
+          <h2 class="session-card__title" id="sesion-titulo">Sesión de estudio</h2>
+          <progress class="bar" id="sessionBar" max="100" value="0" aria-label="Progreso de sesiones de estudio"></progress>
+          <a href="pomodoro.html" class="btn btn--primary" id="goPomodoro"></a>
+        </section>
+
+        <ul class="stats" id="dashStats" aria-label="Resumen del día"></ul>
+
+        <div class="dashboard-row dashboard-row--top">
+          <section class="card card--outlined day-progress" aria-labelledby="progreso-titulo">
+            <div class="day-progress__header">
+              <div>
+                <h2 class="day-progress__title" id="progreso-titulo">Progreso del dia</h2>
+                <time class="day-progress__date" id="todayDate"></time>
+              </div>
+              <p class="pill-outline" id="dayPercent">0% Completado</p>
+            </div>
+            <ul class="day-progress__list" id="progressList"></ul>
+          </section>
+
+          <section class="card card--outlined subjects" aria-labelledby="materias-titulo">
+            <div class="subjects__header">
+              <h2 class="subjects__title" id="materias-titulo">Materias</h2>
+              <a href="materias.html" class="subjects__manage">Gestionar &gt;</a>
+            </div>
+            <ul class="subjects__list" id="subjectTiles"></ul>
+          </section>
+        </div>
+
+        <div class="dashboard-row dashboard-row--bottom">
+          <section class="card tasks-card" aria-labelledby="tareas-titulo">
+            <h2 class="tasks-card__title" id="tareas-titulo">Tareas pendientes</h2>
+            <ul class="task-list" id="dashTasks"></ul>
+          </section>
+
+          <section class="calendar" data-calendar data-link="calendario.html" aria-labelledby="cal-titulo"></section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/icons.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/calendar.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

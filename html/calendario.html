@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario — StudyFlow</title>
+  <meta name="description" content="Consulta cuándo tienes tareas programadas en tu calendario de StudyFlow.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/calendar.css">
+  <link rel="stylesheet" href="../css/calendario.css">
+</head>
+<body class="app" data-page="calendario">
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <div class="app-shell">
+    <div data-shell="sidebar"></div>
+
+    <div class="app-main">
+      <div data-shell="topbar"></div>
+
+      <main class="app-content" id="contenido">
+        <div class="page-header">
+          <h1>Calendario</h1>
+          <p>Consulta cuándo tienes tareas programadas</p>
+        </div>
+
+        <div class="calendar-layout">
+          <section class="calendar" data-calendar aria-labelledby="cal-titulo"></section>
+
+          <aside class="card day-panel" aria-labelledby="dia-titulo">
+            <h2 class="visually-hidden" id="dia-titulo">Detalle del día seleccionado</h2>
+            <p class="day-panel__weekday" id="dayWeekday"></p>
+            <p class="day-panel__date"><span id="dayDate"></span> <span class="day-panel__year" id="dayYear"></span></p>
+            <div class="day-panel__body" aria-live="polite">
+              <ul class="day-panel__list" id="dayList"></ul>
+              <div class="day-panel__empty" id="dayEmpty" hidden></div>
+              <a href="tareas.html?nueva=1" class="btn btn--outline btn--sm btn--block" id="dayCreate">Crear tarea para este día</a>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/icons.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/calendar.js"></script>
+  <script src="../js/calendario.js"></script>
+</body>
+</html>
