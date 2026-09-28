@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido — StudyFlow</title>
+  <meta name="description" content="Empieza a usar StudyFlow: crea tu primera materia y tu primera tarea.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/calendar.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="app">
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="sidebar__brand" href="dashboard-nuevo.html" aria-label="StudyFlow, ir al inicio">
+        <img src="../assets/logo/studyflow-mark.svg" alt="" width="30" height="30">
+        <span>StudyFlow</span>
+      </a>
+      <nav aria-label="Navegación de la aplicación">
+        <ul class="sidebar__nav">
+          <li><a class="sidebar__link" href="dashboard-nuevo.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-8z"/></svg><span>Inicio</span></a></li>
+          <li><a class="sidebar__link" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12l2.5 2.5L16 9"/></svg><span>Tareas</span></a></li>
+          <li><a class="sidebar__link" href="calendario.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 10h16M8 3v4M16 3v4"/></svg><span>Calendario</span></a></li>
+          <li><a class="sidebar__link" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="7.5"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg><span>Pomodoro</span></a></li>
+          <li><a class="sidebar__link" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h11a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M8 8h6"/></svg><span>Materias</span></a></li>
+          <li><a class="sidebar__link" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.5 3.6-6 8-6s8 2.5 8 6"/></svg><span>Perfil</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <div class="app-main">
+      <header class="topbar">
+        <button type="button" class="topbar__menu" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <form class="topbar__search" role="search" action="#">
+          <label class="visually-hidden" for="buscar">Buscar</label>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg>
+          <input type="search" id="buscar" name="buscar" placeholder="Buscar...">
+        </form>
+        <div class="topbar__actions">
+          <span class="streak"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3.5 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 .3 1.2 1 1.8 1.7 2C10.5 8 10.8 5.5 12 3z"/></svg>7 días</span>
+          <button type="button" class="icon-button" aria-label="Notificaciones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15L6 16zM10 20a2 2 0 0 0 4 0"/></svg></button>
+          <span class="avatar" role="img" aria-label="Perfil de usuario">E</span>
+        </div>
+      </header>
+
+      <main class="app-content" id="contenido">
+        <h1 class="welcome">¡Bienvenido! <span aria-hidden="true">👋</span></h1>
+
+        <section class="session-card" aria-labelledby="sesion-titulo">
+          <div class="session-card__ring" aria-hidden="true">
+            <div class="session-card__ring-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="7.5"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg><span>0/4<br>sesiones</span></div>
+          </div>
+          <h2 class="session-card__title" id="sesion-titulo">Sesión de estudio</h2>
+          <progress class="bar" max="100" value="0" aria-label="Progreso de sesiones de estudio: 0 de 4"></progress>
+          <a href="#" class="btn btn--primary">Ir al pomodoro <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </section>
+
+        <ul class="stats" aria-label="Resumen del día">
+          <li class="stat-card stat-card--time">
+            <span class="stat-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span>
+            <p class="stat-card__value">0 h</p>
+            <p class="stat-card__label">Horas hoy</p>
+          </li>
+          <li class="stat-card stat-card--done">
+            <span class="stat-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12l2.5 2.5L16 9"/></svg></span>
+            <p class="stat-card__value">0</p>
+            <p class="stat-card__label">Tareas completadas</p>
+          </li>
+          <li class="stat-card stat-card--pending">
+            <span class="stat-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></svg></span>
+            <p class="stat-card__value">0</p>
+            <p class="stat-card__label">Tareas pendientes</p>
+          </li>
+          <li class="stat-card stat-card--streak">
+            <span class="stat-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3.5 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 .3 1.2 1 1.8 1.7 2C10.5 8 10.8 5.5 12 3z"/></svg></span>
+            <p class="stat-card__value">0d</p>
+            <p class="stat-card__label">Racha</p>
+          </li>
+        </ul>
+
+        <div class="dashboard-row dashboard-row--top">
+          <section class="card card--outlined day-progress" aria-labelledby="progreso-titulo">
+            <div class="day-progress__header">
+              <div>
+                <h2 class="day-progress__title" id="progreso-titulo">Progreso del dia</h2>
+                <time class="day-progress__date" datetime="2026-08-25">25/08/2026</time>
+              </div>
+              <p class="pill-outline">0% Completado</p>
+            </div>
+            <ul class="day-progress__list">
+              <li class="day-progress__item"><a href="#" class="link-create">Crear Tarea +</a><progress class="bar" max="100" value="0" aria-label="Progreso de la primera tarea: 0%"></progress></li>
+            </ul>
+          </section>
+
+          <section class="card card--outlined subjects" aria-labelledby="materias-titulo">
+            <div class="subjects__header">
+              <h2 class="subjects__title" id="materias-titulo">Materias</h2>
+              <a href="#" class="subjects__manage">Gestionar &gt;</a>
+            </div>
+            <ul class="subjects__list">
+              <li><a href="#" class="subject-tile subject-tile--create">Crear<br>Materia +</a></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="dashboard-row dashboard-row--bottom">
+          <section class="card tasks-card tasks-card--empty" aria-labelledby="tareas-titulo">
+            <h2 class="tasks-card__title" id="tareas-titulo">Tareas pendientes</h2>
+            <ul class="task-list">
+              <li class="task-item"><input type="checkbox" class="task-item__check" id="t1" aria-label="Marcar la primera tarea como completada" disabled><span class="task-item__priority task-item__priority--high" aria-hidden="true"></span><span class="task-item__info"><a href="#" class="task-item__name">Crear Tarea +</a></span><span class="badge badge--high">Prioridad</span></li>
+            </ul>
+          </section>
+
+          <section class="calendar" data-calendar data-events="off" aria-labelledby="cal-titulo">
+        <div class="calendar__header">
+          <button type="button" class="calendar__nav" data-cal-prev aria-label="Mes anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <h2 class="calendar__title" id="cal-titulo"><span data-cal-month>Agosto</span> <span class="calendar__year" data-cal-year>2026</span></h2>
+          <button type="button" class="calendar__nav" data-cal-next aria-label="Mes siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="calendar__weekdays" aria-hidden="true"><span>DOM</span><span>LUN</span><span>MAR</span><span>MIE</span><span>JUE</span><span>VIE</span><span>SAB</span></div>
+        <div class="calendar__grid" data-cal-grid></div>
+      </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/calendar.js"></script>
+</body>
+</html>
