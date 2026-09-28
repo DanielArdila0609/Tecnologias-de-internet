@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi perfil — StudyFlow</title>
+  <meta name="description" content="Administra tu información personal y configuración de seguridad en StudyFlow.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/perfil.css">
+</head>
+<body class="app" data-page="perfil">
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <div class="app-shell">
+    <div data-shell="sidebar"></div>
+
+    <div class="app-main">
+      <div data-shell="topbar"></div>
+
+      <main class="app-content" id="contenido">
+        <div class="page-header">
+          <h1>Mi perfil</h1>
+          <p>Administra tu información personal y configuración de seguridad</p>
+        </div>
+
+        <div class="profile-layout">
+          <section class="card profile-card" aria-labelledby="profileCardTitle">
+            <h2 class="visually-hidden" id="profileCardTitle">Resumen del perfil</h2>
+            <div class="profile-card__avatar-wrap">
+              <span class="profile-card__avatar" id="profileAvatar"></span>
+              <button type="button" class="profile-card__camera" id="avatarBtn" aria-label="Cambiar foto de perfil"></button>
+              <input type="file" id="avatarInput" accept="image/*" class="visually-hidden">
+            </div>
+            <h3 class="profile-card__name" id="profileName"></h3>
+            <p class="profile-card__email" id="profileEmail"></p>
+            <p class="profile-card__career" id="profileCareer"></p>
+            <p class="profile-card__since" id="profileSince"></p>
+            <button type="button" class="btn btn--primary btn--block" id="editProfileBtn">Editar perfil</button>
+          </section>
+
+          <div class="profile-main">
+            <section class="card" aria-labelledby="infoTitle">
+              <h2 class="section-title" id="infoTitle"><span data-icon="user"></span>Información personal</h2>
+              <form class="profile-form" id="infoForm" novalidate>
+                <div class="field-row">
+                  <div class="field"><label for="pfName">Nombre</label><input type="text" id="pfName" name="name" required></div>
+                  <div class="field"><label for="pfLastName">Apellidos</label><input type="text" id="pfLastName" name="lastName"></div>
+                </div>
+                <div class="field"><label for="pfEmail">Correo electrónico</label><input type="email" id="pfEmail" name="email" readonly></div>
+                <div class="field"><label for="pfUniversity">Universidad</label><input type="text" id="pfUniversity" name="university" placeholder="ej. Universidad Militar Nueva Granada"></div>
+                <div class="field-row">
+                  <div class="field"><label for="pfCareer">Carrera o programa</label><input type="text" id="pfCareer" name="career" placeholder="ej. Ingeniería en Sistemas"></div>
+                  <div class="field"><label for="pfSemester">Semestre</label><input type="text" id="pfSemester" name="semester" placeholder="ej. 5"></div>
+                </div>
+                <p class="form-error" role="alert" hidden></p>
+                <p class="form-success" role="status" hidden></p>
+                <div class="profile-form__actions">
+                  <button type="submit" class="btn btn--primary btn--sm"><span data-icon="save"></span>Guardar cambios</button>
+                </div>
+              </form>
+            </section>
+
+            <section class="card" aria-labelledby="securityTitle" id="securitySection">
+              <h2 class="section-title" id="securityTitle"><span data-icon="lock"></span>Seguridad</h2>
+              <div id="securityBody"></div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/icons.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/perfil.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro — StudyFlow</title>
+  <meta name="description" content="Temporizador Pomodoro de StudyFlow: enfoque, descansos y resumen de tu jornada.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/pomodoro.css">
+</head>
+<body class="app" data-page="pomodoro">
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <div class="app-shell">
+    <div data-shell="sidebar"></div>
+
+    <div class="app-main">
+      <div data-shell="topbar"></div>
+
+      <main class="app-content" id="contenido">
+        <div class="pomodoro-layout">
+
+          <section class="panel settings" aria-labelledby="cfgTitle">
+            <h2 class="panel__title" id="cfgTitle">Configuración</h2>
+            <p class="panel__subtitle">Ajusta tus tiempos y preferencias</p>
+            <ul class="setting-list">
+            <li class="setting">
+              <div class="setting__text"><span class="setting__label" id="lbl-focus">Duración de enfoque</span><span class="setting__hint">Tiempo para estudiar</span></div>
+              <div class="stepper" role="group" aria-labelledby="lbl-focus">
+                <button type="button" class="stepper__btn" data-step="focus" data-dir="-1" aria-label="Disminuir duración de enfoque" data-icon="minus"></button>
+                <span class="stepper__value"><output id="val-focus" for="lbl-focus">00</output><small>min</small></span>
+                <button type="button" class="stepper__btn" data-step="focus" data-dir="1" aria-label="Aumentar duración de enfoque" data-icon="plus"></button>
+              </div>
+            </li>
+            <li class="setting">
+              <div class="setting__text"><span class="setting__label" id="lbl-short">Descanso corto</span><span class="setting__hint">Pausa entre sesiones</span></div>
+              <div class="stepper" role="group" aria-labelledby="lbl-short">
+                <button type="button" class="stepper__btn" data-step="short" data-dir="-1" aria-label="Disminuir descanso corto" data-icon="minus"></button>
+                <span class="stepper__value"><output id="val-short" for="lbl-short">00</output><small>min</small></span>
+                <button type="button" class="stepper__btn" data-step="short" data-dir="1" aria-label="Aumentar descanso corto" data-icon="plus"></button>
+              </div>
+            </li>
+            <li class="setting">
+              <div class="setting__text"><span class="setting__label" id="lbl-long">Descanso largo</span><span class="setting__hint">Pausa tras varias sesiones</span></div>
+              <div class="stepper" role="group" aria-labelledby="lbl-long">
+                <button type="button" class="stepper__btn" data-step="long" data-dir="-1" aria-label="Disminuir descanso largo" data-icon="minus"></button>
+                <span class="stepper__value"><output id="val-long" for="lbl-long">00</output><small>min</small></span>
+                <button type="button" class="stepper__btn" data-step="long" data-dir="1" aria-label="Aumentar descanso largo" data-icon="plus"></button>
+              </div>
+            </li>
+            <li class="setting">
+              <div class="setting__text"><span class="setting__label" id="lbl-cycles">Sesiones hasta descanso largo</span><span class="setting__hint">Ciclo de estudio</span></div>
+              <div class="stepper" role="group" aria-labelledby="lbl-cycles">
+                <button type="button" class="stepper__btn" data-step="cycles" data-dir="-1" aria-label="Disminuir sesiones hasta descanso largo" data-icon="minus"></button>
+                <span class="stepper__value"><output id="val-cycles" for="lbl-cycles">00</output><small>ses</small></span>
+                <button type="button" class="stepper__btn" data-step="cycles" data-dir="1" aria-label="Aumentar sesiones hasta descanso largo" data-icon="plus"></button>
+              </div>
+            </li>
+            <li class="setting">
+              <div class="setting__text"><span class="setting__label" id="lbl-dailyGoal">Meta diaria</span><span class="setting__hint">Sesiones por día</span></div>
+              <div class="stepper" role="group" aria-labelledby="lbl-dailyGoal">
+                <button type="button" class="stepper__btn" data-step="dailyGoal" data-dir="-1" aria-label="Disminuir meta diaria" data-icon="minus"></button>
+                <span class="stepper__value"><output id="val-dailyGoal" for="lbl-dailyGoal">00</output><small>ses</small></span>
+                <button type="button" class="stepper__btn" data-step="dailyGoal" data-dir="1" aria-label="Aumentar meta diaria" data-icon="plus"></button>
+              </div>
+            </li>
+            </ul>
+            <h3 class="settings__subtitle">PREFERENCIAS</h3>
+            <ul class="pref-list">
+            <li class="pref">
+              <span class="pref__icon" data-icon="volume"></span>
+              <div class="setting__text"><span class="setting__label" id="lbl-sound">Sonidos</span><span class="setting__hint">Aviso al terminar</span></div>
+              <button type="button" class="switch" role="switch" aria-checked="false" aria-labelledby="lbl-sound" data-pref="sound"><span class="switch__thumb"></span></button>
+            </li>
+            <li class="pref">
+              <span class="pref__icon" data-icon="bell"></span>
+              <div class="setting__text"><span class="setting__label" id="lbl-notify">Notificaciones</span><span class="setting__hint">Avisos del sistema</span></div>
+              <button type="button" class="switch" role="switch" aria-checked="false" aria-labelledby="lbl-notify" data-pref="notify"><span class="switch__thumb"></span></button>
+            </li>
+            <li class="pref">
+              <span class="pref__icon" data-icon="repeat"></span>
+              <div class="setting__text"><span class="setting__label" id="lbl-auto">Inicio automático</span><span class="setting__hint">Siguiente sesión sola</span></div>
+              <button type="button" class="switch" role="switch" aria-checked="false" aria-labelledby="lbl-auto" data-pref="auto"><span class="switch__thumb"></span></button>
+            </li>
+            </ul>
+          </section>
+
+          <section class="timer-card" aria-labelledby="modeLabel">
+            <h2 class="timer-card__mode" id="modeLabel">Enfoque</h2>
+            <div class="timer-ring">
+              <svg class="timer-ring__svg" viewBox="0 0 240 240" aria-hidden="true">
+                <circle class="timer-ring__track" cx="120" cy="120" r="104"/>
+                <circle class="timer-ring__progress" id="ringProgress" cx="120" cy="120" r="104"/>
+              </svg>
+              <div class="timer-ring__display" id="timerDisplay" role="timer"></div>
+            </div>
+            <div class="timer-controls">
+              <button type="button" class="timer-controls__btn" id="btnPlay" aria-label="Iniciar"></button>
+              <button type="button" class="timer-controls__btn" id="btnPause" aria-label="Pausar"></button>
+            </div>
+            <div class="timer-extra">
+              <button type="button" class="link-btn" id="btnReset"></button>
+              <span class="timer-card__session" id="sessionLabel"></span>
+              <button type="button" class="link-btn" id="btnSkip"></button>
+            </div>
+          </section>
+
+          <section class="panel summary" aria-labelledby="sumTitle">
+            <h2 class="panel__title" id="sumTitle">Resumen de hoy</h2>
+            <p class="panel__subtitle">Tu progreso esta jornada</p>
+            <ul class="summary__list">
+            <li class="summary__item">
+              <span class="summary__icon summary__icon--teal" data-icon="clock"></span>
+              <span class="summary__label">Tiempo estudiado hoy</span>
+              <strong class="summary__value" id="sumTime"></strong>
+            </li>
+            <li class="summary__item">
+              <span class="summary__icon summary__icon--indigo" data-icon="target"></span>
+              <span class="summary__label">Sesiones completadas</span>
+              <strong class="summary__value" id="sumSessions"></strong>
+            </li>
+            <li class="summary__item">
+              <span class="summary__icon summary__icon--amber" data-icon="flame"></span>
+              <span class="summary__label">Racha actual</span>
+              <strong class="summary__value" id="sumStreak"></strong>
+            </li>
+            <li class="summary__item">
+              <span class="summary__icon summary__icon--purple" data-icon="coffee"></span>
+              <span class="summary__label">Próximo descanso</span>
+              <strong class="summary__value" id="sumBreak"></strong>
+            </li>
+            </ul>
+            <div class="summary__goal">
+              <div class="summary__goal-row"><span>Objetivo diario</span><strong id="sumPercent">0%</strong></div>
+              <progress class="bar" id="sumBar" max="100" value="0" aria-label="Objetivo diario"></progress>
+              <p class="summary__goal-text" id="sumGoalText"></p>
+            </div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/icons.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/pomodoro.js"></script>
+</body>
+</html>

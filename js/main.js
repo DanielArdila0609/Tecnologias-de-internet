@@ -6,7 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMobileMenu();
   setupSmoothAnchorScroll();
   setupActionButtons();
+  redirectIfLoggedIn();
 });
+
+/**
+ * Si ya hay una sesión activa, la landing lleva directo al panel.
+ */
+function redirectIfLoggedIn() {
+  if (window.SF && window.SF.currentUser && window.SF.currentUser()) {
+    window.location.replace('dashboard.html');
+  }
+}
 
 /**
  * Menú hamburguesa para navegación en móvil.

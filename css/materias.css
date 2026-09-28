@@ -1,0 +1,168 @@
+/* =========================================================
+   StudyFlow — Materias
+   Requiere css/styles.css, css/components.css y css/app.css.
+   ========================================================= */
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  max-width: 1100px;
+  margin: 24px auto 0;
+}
+
+.subject-card {
+  position: relative;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(var(--c-rgb, 41, 214, 221), 0.3);
+  background: rgba(var(--c-rgb, 41, 214, 221), 0.08);
+}
+
+.subject-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-right: 74px;
+}
+
+.subject-card__emoji {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(var(--c-rgb), 0.18);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.subject-card__name {
+  min-width: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+}
+
+.subject-card__stats {
+  margin-top: 2px;
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+.subject-card__actions {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  gap: 6px;
+}
+
+.subject-card__progress {
+  margin-top: 16px;
+}
+
+.subject-card__progress-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+}
+
+.subject-card__progress-row strong {
+  color: rgb(var(--c-rgb));
+}
+
+.subject-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  color: rgb(var(--c-rgb));
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.subject-card__link:hover {
+  text-decoration: underline;
+}
+
+.subject-card--create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 168px;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.subject-card--create:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.subject-card--create span[data-icon] {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- Selector de emoji y color (modal) ---------- */
+.emoji-grid,
+.color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.emoji-grid input,
+.color-grid input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.emoji-grid label,
+.color-grid label {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1.5px solid var(--app-border);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.emoji-grid input:checked + label {
+  border-color: var(--color-primary);
+  background: rgba(41, 214, 221, 0.14);
+}
+
+.color-grid label {
+  background: rgb(var(--c-rgb));
+  border-color: transparent;
+}
+
+.color-grid input:checked + label {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.color-grid input:focus-visible + label,
+.emoji-grid input:focus-visible + label {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

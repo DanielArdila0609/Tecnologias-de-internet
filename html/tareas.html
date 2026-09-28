@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Tareas — StudyFlow</title>
+  <meta name="description" content="Organiza y gestiona toda tu carga académica en StudyFlow.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/tareas.css">
+</head>
+<body class="app" data-page="tareas">
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <div class="app-shell">
+    <div data-shell="sidebar"></div>
+
+    <div class="app-main">
+      <div data-shell="topbar"></div>
+
+      <main class="app-content" id="contenido">
+        <div class="page-header page-header--actions">
+          <div>
+            <h1>Mis Tareas</h1>
+            <p>Organiza y gestiona toda tu carga académica</p>
+          </div>
+          <button type="button" class="btn btn--primary btn--sm" id="newTaskBtn">+ Nueva tarea</button>
+        </div>
+
+        <ul class="stats stats--compact" id="taskStats" aria-label="Resumen de tareas"></ul>
+
+        <div class="tasks-layout">
+          <div class="tasks-main">
+            <div class="toolbar">
+              <form class="searchbar" role="search" id="taskSearchForm">
+                <label class="visually-hidden" for="taskSearch">Buscar por nombre o materia</label>
+                <span class="searchbar__icon" id="searchIcon"></span>
+                <input type="search" id="taskSearch" placeholder="Buscar por nombre o materia..." autocomplete="off">
+              </form>
+              <button type="button" class="btn btn--outline btn--sm" id="filtersBtn" aria-expanded="false" aria-controls="filtersPanel"><span id="filterIcon"></span>Filtros</button>
+            </div>
+
+            <div class="filters" id="filtersPanel" hidden>
+              <div class="field">
+                <label for="filterSubject">Materia</label>
+                <select id="filterSubject"></select>
+              </div>
+              <div class="field">
+                <label for="filterPriority">Prioridad</label>
+                <select id="filterPriority">
+                  <option value="">Todas</option>
+                  <option value="high">Alta</option>
+                  <option value="medium">Media</option>
+                  <option value="low">Baja</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="filterSort">Ordenar por</label>
+                <select id="filterSort">
+                  <option value="due">Fecha límite</option>
+                  <option value="priority">Prioridad</option>
+                  <option value="newest">Más recientes</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn--ghost btn--sm" id="clearFilters">Limpiar</button>
+            </div>
+
+            <div class="tabs" role="tablist" aria-label="Estado de las tareas">
+              <button type="button" role="tab" id="tabPending" aria-selected="true" aria-controls="taskCards">Pendientes <span class="tabs__count" id="countPending">0</span></button>
+              <button type="button" role="tab" id="tabDone" aria-selected="false" aria-controls="taskCards" tabindex="-1">Completadas <span class="tabs__count" id="countDone">0</span></button>
+            </div>
+
+            <ul class="task-cards" id="taskCards" role="tabpanel" aria-live="polite"></ul>
+          </div>
+
+          <aside class="tasks-side" aria-label="Resumen lateral">
+            <section class="side-card" aria-labelledby="upcomingTitle">
+              <h2 class="side-card__title" id="upcomingTitle">Próximas entregas</h2>
+              <ul class="upcoming" id="upcomingList"></ul>
+            </section>
+            <section class="side-card" aria-labelledby="bySubjectTitle">
+              <h2 class="side-card__title" id="bySubjectTitle">Por materia</h2>
+              <ul class="by-subject" id="bySubjectList"></ul>
+            </section>
+            <section class="side-card" aria-labelledby="remindersTitle">
+              <h2 class="side-card__title" id="remindersTitle">Recordatorios</h2>
+              <ul class="reminders" id="remindersList"></ul>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="modal" id="taskModal" aria-labelledby="taskModalTitle">
+    <form class="modal__form" id="taskForm" novalidate>
+      <header class="modal__header">
+        <h2 id="taskModalTitle">Nueva tarea</h2>
+        <button type="button" class="modal__close" data-close aria-label="Cerrar" id="taskModalClose"></button>
+      </header>
+
+      <div class="field">
+        <label for="taskTitle">Nombre *</label>
+        <input type="text" id="taskTitle" name="title" placeholder="ej. Tarea de Cálculo, capítulo 4" maxlength="120" required>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="taskSubject">Materia</label>
+          <select id="taskSubject" name="subjectId"></select>
+        </div>
+        <fieldset class="field">
+          <legend>Prioridad</legend>
+          <div class="segmented">
+            <label class="segmented--low"><input type="radio" name="priority" value="low"><span>Baja</span></label>
+            <label class="segmented--medium"><input type="radio" name="priority" value="medium" checked><span>Media</span></label>
+            <label class="segmented--high"><input type="radio" name="priority" value="high"><span>Alta</span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="taskDate">Fecha límite</label>
+          <input type="date" id="taskDate" name="dueDate">
+        </div>
+        <div class="field">
+          <label for="taskTime">Hora (opcional)</label>
+          <input type="time" id="taskTime" name="dueTime">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="taskTags">Etiquetas (separadas por coma)</label>
+        <input type="text" id="taskTags" name="tags" placeholder="ej. Parcial, Lab, Entrega">
+      </div>
+
+      <div class="field">
+        <label for="taskNotes">Notas (opcional)</label>
+        <textarea id="taskNotes" name="notes" rows="3" placeholder="Instrucciones, referencias..."></textarea>
+      </div>
+
+      <p class="form-error" role="alert" hidden></p>
+
+      <footer class="modal__footer">
+        <button type="button" class="btn btn--ghost btn--sm" data-close>Cancelar</button>
+        <button type="submit" class="btn btn--primary btn--sm" id="taskSubmit">Crear tarea</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <script src="../js/icons.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/tareas.js"></script>
+</body>
+</html>

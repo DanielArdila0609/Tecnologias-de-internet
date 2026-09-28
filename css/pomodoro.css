@@ -1,0 +1,395 @@
+/* =========================================================
+   StudyFlow — Pomodoro
+   Requiere css/styles.css, css/components.css y css/app.css.
+   ========================================================= */
+
+.pomodoro-layout {
+  display: grid;
+  grid-template-columns: 300px 340px 300px;
+  justify-content: center;
+  align-items: start;
+  gap: 24px;
+  padding-top: 8px;
+}
+
+.panel {
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--app-border);
+  background: var(--app-card-alt);
+}
+
+.panel__title {
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.panel__subtitle {
+  margin: 4px 0 14px;
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Configuración ---------- */
+.setting-list,
+.pref-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.setting,
+.pref {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--app-border);
+}
+
+.setting__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin-right: auto;
+}
+
+.setting__label {
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.setting__hint {
+  font-size: 0.64rem;
+  color: var(--color-text-secondary);
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepper__btn {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--app-border);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text);
+}
+
+.stepper__btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.stepper__btn svg {
+  width: 11px;
+  height: 11px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.stepper__value {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  min-width: 44px;
+  justify-content: center;
+}
+
+.stepper__value output {
+  font-size: 0.85rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.stepper__value small {
+  font-size: 0.6rem;
+  color: var(--color-text-secondary);
+}
+
+.settings__subtitle {
+  margin: 16px 0 4px;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--color-text-secondary);
+}
+
+.pref__icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-secondary);
+}
+
+.pref__icon svg,
+.summary__icon svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.switch {
+  position: relative;
+  width: 34px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.switch__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #1c2540;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.switch[aria-checked="true"] {
+  background: rgba(41, 214, 221, 0.35);
+}
+
+.switch[aria-checked="true"] .switch__thumb {
+  transform: translateX(16px);
+  background: var(--color-primary);
+}
+
+/* ---------- Temporizador ---------- */
+.timer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 20px 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--app-border);
+  background: linear-gradient(170deg, #101c3f 0%, #0a1230 60%, #0a1024 100%);
+  box-shadow: 0 0 80px rgba(60, 80, 220, 0.12);
+}
+
+.timer-card__mode {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.timer-ring {
+  position: relative;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1;
+}
+
+.timer-ring__svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer-ring__track,
+.timer-ring__progress {
+  fill: none;
+  stroke-width: 18;
+}
+
+.timer-ring__track {
+  stroke: #dcdde3;
+}
+
+.timer-ring__progress {
+  stroke: #7c86f5;
+  stroke-linecap: round;
+  stroke-dasharray: 653.45;
+  stroke-dashoffset: 653.45;
+  transition: stroke-dashoffset 300ms linear;
+}
+
+.timer-ring__display {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0 26%;
+}
+
+.seg-display {
+  width: 100%;
+  filter: drop-shadow(0 0 6px rgba(45, 212, 200, 0.55));
+}
+
+.seg-display .seg {
+  fill: #2dd4c8;
+  opacity: 0.09;
+}
+
+.seg-display .seg.is-on {
+  opacity: 1;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 40px;
+}
+
+.timer-controls__btn {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.timer-controls__btn:hover:not(:disabled) {
+  transform: scale(1.1);
+}
+
+.timer-controls__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.timer-controls__btn svg {
+  width: 34px;
+  height: 34px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.timer-extra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding-top: 12px;
+  border-top: 1px solid var(--app-border);
+  font-size: 0.72rem;
+}
+
+.timer-card__session {
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.link-btn:hover {
+  color: var(--color-primary);
+}
+
+.link-btn svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Resumen ---------- */
+.summary__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-top: 1px solid var(--app-border);
+  font-size: 0.74rem;
+}
+
+.summary__icon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.summary__icon--teal { color: #29d6dd; background: rgba(41, 214, 221, 0.14); }
+.summary__icon--indigo { color: #818cf8; background: rgba(129, 140, 248, 0.14); }
+.summary__icon--amber { color: #f59e0b; background: rgba(245, 158, 11, 0.14); }
+.summary__icon--purple { color: #a855f7; background: rgba(168, 85, 247, 0.14); }
+
+.summary__label {
+  margin-right: auto;
+  color: var(--color-text-secondary);
+}
+
+.summary__value {
+  font-weight: 800;
+}
+
+.summary__goal {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--app-border);
+}
+
+.summary__goal-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+}
+
+.summary__goal-row strong {
+  color: var(--color-primary);
+}
+
+.summary__goal-text {
+  margin-top: 8px;
+  font-size: 0.64rem;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .pomodoro-layout {
+    grid-template-columns: minmax(0, 380px);
+  }
+
+  .timer-card {
+    order: -1;
+  }
+}

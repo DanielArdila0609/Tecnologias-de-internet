@@ -124,6 +124,10 @@
   color: var(--color-primary);
 }
 
+.sidebar__badge[hidden] {
+  display: none;
+}
+
 .sidebar__badge {
   display: inline-flex;
   align-items: center;
@@ -181,9 +185,13 @@
   stroke-linejoin: round;
 }
 
-.topbar__search {
+.topbar__search-wrap {
   position: relative;
   flex: 0 1 300px;
+}
+
+.topbar__search {
+  position: relative;
   color: var(--color-text-secondary);
 }
 
@@ -269,6 +277,13 @@
   color: #04191c;
   font-size: 0.85rem;
   font-weight: 800;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ---------- Componentes compartidos ---------- */
@@ -328,20 +343,6 @@
 .badge--medium { background: rgba(245, 158, 11, 0.16); color: #fbbf24; }
 .badge--low { background: rgba(34, 197, 94, 0.16); color: #4ade80; }
 
-.dot-subject {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.dot-subject--calculo { background: var(--subject-calculo); }
-.dot-subject--fisica { background: var(--subject-fisica); }
-.dot-subject--historia { background: var(--subject-historia); }
-.dot-subject--literatura { background: var(--subject-literatura); }
-.dot-subject--quimica { background: var(--subject-quimica); }
-.dot-subject--programacion { background: var(--subject-programacion); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
@@ -396,7 +397,7 @@
     padding: 0 14px;
   }
 
-  .topbar__search {
+  .topbar__search-wrap {
     flex: 1 1 auto;
     min-width: 0;
   }
@@ -409,3 +410,141 @@
     display: none;
   }
 }
+
+/* ---------- Extras de la aplicación ---------- */
+/* =========================================================
+   Componentes de interfaz compartidos (formularios, modal, avisos…)
+   ========================================================= */
+
+.streak:hover {
+  background: rgba(245, 158, 11, 0.16);
+}
+
+/* ---------- Sidebar: cerrar sesión ---------- */
+.sidebar__logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.sidebar__logout svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sidebar__logout:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+}
+
+/* ---------- Menús desplegables ---------- */
+.dropdown-wrap {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  z-index: 120;
+  min-width: 260px;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--app-border);
+  background: var(--app-card-alt);
+  box-shadow: var(--shadow-soft);
+}
+
+.dropdown[hidden] {
+  display: none;
+}
+
+.dropdown--search {
+  left: 0;
+  right: 0;
+}
+
+.dropdown--notif {
+  right: 0;
+  width: 300px;
+}
+
+.dropdown__title {
+  padding: 6px 8px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.dropdown__empty {
+  padding: 10px 8px;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.dropdown__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdown__list a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 8px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+}
+
+.dropdown__list a:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dropdown__list a small {
+  margin-left: auto;
+  color: var(--color-text-secondary);
+  font-size: 0.68rem;
+}
+
+.dropdown__list svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.notif-item--danger svg { color: #f87171; }
+.notif-item--info svg { color: #60a5fa; }
+
+.icon-button {
+  position: relative;
+}
+
+.icon-button__dot {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-danger);
+  border: 1.5px solid var(--app-bg);
+}
+

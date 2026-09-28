@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar sesión — StudyFlow</title>
-  <meta name="description" content="Inicia sesión en StudyFlow para continuar organizando tus estudios.">
+  <title>Crear cuenta — StudyFlow</title>
+  <meta name="description" content="Crea tu cuenta gratis en StudyFlow y empieza a organizar tus estudios.">
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +29,8 @@
         <span class="navbar__name">StudyFlow</span>
       </a>
       <div class="navbar__actions">
-        <a href="iniciar-sesion.html" class="btn btn--ghost" aria-current="page">Iniciar Sesión</a>
-        <a href="crear-cuenta.html" class="btn btn--primary">Comenzar Gratis</a>
+        <a href="iniciar-sesion.html" class="btn btn--ghost">Iniciar Sesión</a>
+        <a href="crear-cuenta.html" class="btn btn--primary" aria-current="page">Comenzar Gratis</a>
       </div>
     </div>
   </header>
@@ -40,23 +40,40 @@
       <div class="auth__visual" id="authVisual" aria-hidden="true"></div>
 
       <section class="auth-card" aria-labelledby="authTitle">
-        <h1 id="authTitle">Bienvenido de nuevo</h1>
-        <p class="auth-card__subtitle">Continúa organizando tus estudios y alcanzando tus retos.</p>
+        <h1 id="authTitle">Crea tu cuenta</h1>
+        <p class="auth-card__subtitle">Empieza a organizar tus estudios de forma inteligente.</p>
 
-        <form class="auth-form" id="loginForm" novalidate>
+        <form class="auth-form" id="signupForm" novalidate>
           <div class="field">
-            <label for="loginEmail">Correo electrónico</label>
-            <input type="email" id="loginEmail" name="email" placeholder="tucorreo@universidad.edu" autocomplete="email" required>
+            <label for="signupName">Nombre Completo</label>
+            <input type="text" id="signupName" name="name" placeholder="ej. Sofía Martínez Rojas" autocomplete="name" required>
           </div>
           <div class="field">
-            <div class="field__label-row"><label for="loginPassword">Contraseña</label><a href="recuperar-contrasena.html">¿Olvidaste tu contraseña?</a></div>
+            <label for="signupEmail">Correo electrónico</label>
+            <input type="email" id="signupEmail" name="email" placeholder="tucorreo@universidad.edu" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="signupPassword">Contraseña</label>
             <div class="input-wrap">
-              <input type="password" id="loginPassword" name="password" placeholder="Tu contraseña" autocomplete="current-password" required>
+              <input type="password" id="signupPassword" name="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" required>
               <button type="button" class="input-wrap__toggle" data-toggle-password aria-label="Mostrar contraseña" aria-pressed="false"></button>
             </div>
           </div>
+          <div class="field">
+            <label for="signupConfirm">Confirmar tu contraseña</label>
+            <div class="input-wrap">
+              <input type="password" id="signupConfirm" name="confirm" placeholder="Repite tu contraseña" autocomplete="new-password" required>
+              <button type="button" class="input-wrap__toggle" data-toggle-password aria-label="Mostrar contraseña" aria-pressed="false"></button>
+            </div>
+          </div>
+          <div class="field">
+            <label class="auth-check">
+              <input type="checkbox" id="signupTerms" name="terms" required>
+              <span>He leído y acepto los <a href="terminos.html" target="_blank" rel="noopener">términos y condiciones</a></span>
+            </label>
+          </div>
           <p class="form-error" role="alert" hidden></p>
-          <button type="submit" class="btn btn--primary btn--block">Iniciar Sesión</button>
+          <button type="submit" class="btn btn--primary btn--block">Crear cuenta gratis</button>
         </form>
 
         <div class="auth-divider"><span>o continuar con</span></div>
@@ -70,7 +87,7 @@
             Microsoft
           </button>
         </div>
-        <p class="auth-card__footer">¿No tienes cuenta? <a href="crear-cuenta.html">Crear una cuenta</a></p>
+        <p class="auth-card__footer">¿Ya tienes cuenta? <a href="iniciar-sesion.html">Iniciar sesión</a></p>
       </section>
     </div>
   </main>
