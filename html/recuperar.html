@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar contraseña — StudyFlow</title>
+  <meta name="description" content="Recupera el acceso a tu cuenta de StudyFlow.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#form-recuperar">Saltar al formulario</a>
+
+  <main class="auth" style="grid-template-columns: minmax(0,1fr);">
+    <section class="auth__form-panel">
+      <div class="auth-card">
+        <a href="iniciar-sesion.html" class="auth-card__eyebrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Volver a iniciar sesión
+        </a>
+
+        <div style="display:flex;justify-content:center;margin-bottom:18px;">
+          <span class="empty-state__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+
+        <h1 style="text-align:center;">¿Olvidaste tu contraseña?</h1>
+        <p class="auth-card__subtitle" style="text-align:center;">Ingresa tu correo y te enviaremos un enlace para restablecerla.</p>
+
+        <form id="form-recuperar" novalidate>
+          <div class="form-field">
+            <label for="rec-correo">Correo electrónico</label>
+            <input type="email" id="rec-correo" name="correo" autocomplete="email" required placeholder="tucorreo@universidad.edu">
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--large btn--block">Enviar enlace de recuperación</button>
+        </form>
+
+        <div id="recuperar-exito" class="auth-success" hidden>
+          <span class="auth-success__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <p style="font-weight:700;">Enlace enviado</p>
+          <p style="color:var(--color-text-secondary); font-size:0.85rem;">
+            Si existe una cuenta asociada a <strong data-sent-email></strong>, recibirás un correo con instrucciones en unos minutos.
+          </p>
+        </div>
+
+        <p class="auth-note">
+          <strong>Nota de demo:</strong> este proyecto no tiene backend ni servidor de correo, así que ningún correo se envía realmente. El flujo visual y la validación funcionan por completo; la solicitud queda registrada localmente para fines de la demo.
+        </p>
+
+        <p class="auth-card__footer">¿Recordaste tu contraseña? <a href="iniciar-sesion.html">Iniciar sesión</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/auth-pages.js"></script>
+</body>
+</html>
